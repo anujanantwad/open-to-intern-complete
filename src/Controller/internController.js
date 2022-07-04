@@ -1,4 +1,4 @@
-const internModel = require("../Model/internModel")
+const internModel = require("../Model/InternModel")
 const CollegeModel = require("../Model/CollegeModel")
 const validator = require("../validator/validate")
 
