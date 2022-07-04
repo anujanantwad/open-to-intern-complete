@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router();
 const collegeController =require("../Controller/collegeController")
-const InternController =require("../Controller/internController")
+const InternController =require("../Controller/InternController")
 
 
 router.post("/functionup/colleges", collegeController.CreateCollege )
