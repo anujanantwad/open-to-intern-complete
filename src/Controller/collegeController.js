@@ -1,5 +1,5 @@
 const CollegeModel = require("../Model/CollegeModel")
-const internModel = require("../Model/internModel")
+const internModel = require("../Model/InternModel")
 const validator = require("../validator/validate")
 
 //-----------------------------------------------[create college]-----------------------------------------------------------------
@@ -48,7 +48,7 @@ const getCollege = async function (req, res) {
 
     let filter = req.query
     //console.log(filter);
-    if (!Object.keys(filter).length) return res.status(200).send({ status: true, msg: "query should be present" });
+    if (!Object.keys(filter).length) return res.status(400).send({ status: true, msg: "query should be present" });
 
     let checkCollegeName = await CollegeModel.findOne({ name: filter.collegeName, isDeleted: false }) /*Check College Name From DB*/
     if (!checkCollegeName) return res.status(404).send({ status: true, msg: "No such college Name found", });
