@@ -43,13 +43,13 @@ const CreateCollege = async function (req, res) {
 // -----------------------------------------------------[Get College Api]-------------------------------------------------------
 
 const getCollege = async function (req, res) {
-
+  res.setHeader("Access-Control-Allow-Origin","*")
   try {
 
     let filter = req.query
-   
-    if (!Object.keys(filter).length) return res.status(400).send({ status: false, msg: "query should be present" });
-    //console.log(!Object.keys(filter));
+    //console.log(filter);
+    if (!Object.keys(filter).length) return res.status(400).send({ status: true, msg: "query should be present" });
+
     let checkCollegeName = await CollegeModel.findOne({ name: filter.collegeName, isDeleted: false }) /*Check College Name From DB*/
     if (!checkCollegeName) return res.status(404).send({ status: true, msg: "No such college Name found", });
 

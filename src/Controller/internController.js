@@ -7,7 +7,9 @@ const validator = require("../validator/validate")
 //---------------------------------------------[ create intern]---------------------------------------------------------
 
 const CreateIntern = async function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin","*")
     try {
+       // res.header(aceess-)
         let data = req.body
         // name
         if (!data.name) return res.status(400).send({ status: false, message: "Name is required" });
